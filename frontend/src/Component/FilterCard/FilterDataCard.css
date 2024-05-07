@@ -1,0 +1,101 @@
+.title {
+  padding: 2rem 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 200;
+  margin: 1rem 0;
+}
+
+h2:hover {
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  color: #037FFF;
+}
+
+p {
+  color: rgba(255, 255, 255, 0.596);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+  padding-bottom: 6rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
+.item-container {
+  overflow: hidden;
+}
+
+.item-con {
+  width: 100%;
+  padding: 1.2rem 1.2rem;
+  background-color: white;
+
+}
+
+.item-container>img {
+  width: 100%;
+  transition: all .3s ease-in-out;
+}
+
+.item-container>img:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+.buttons {
+  width: 70%;
+  margin: 3rem auto;
+  text-align: center;
+}
+
+button.btn {
+  padding: .5rem 2rem;
+  background-color: #000a1d;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: white;
+  transition: all 0.4s cubic-bezier(1, -0.16, .6, 1.35);
+}
+
+.btn:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.btn:hover {
+  background-color: #037FFf;
+  cursor: pointer;
+}
+
+.btn:active,
+.btn:focus {
+  outline: none;
+  border: none;
+}
+
+.Filtercard .loading {
+  color: black;
+  text-align: center;
+  font-size: xxx-large;
+  padding: 5%
+}
+
+.Filtercard .error {
+  color: red;
+  text-align: center;
+  font-size: xxx-large;
+  padding: 5%
+}
+
+.item-container .itemContent {
+  padding-top: 15px;
+  text-align: center;
+}
