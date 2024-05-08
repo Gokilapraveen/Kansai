@@ -4,6 +4,7 @@ import { BrowserRouter as Router , Route, Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
 import HomePage from './Component/HomePage'
+import ProductPage from './Component/ProductPage'
 
 function App() { 
   const { cartTotalQuantity } = useSelector((state) => state.cart);
@@ -33,7 +34,9 @@ function App() {
         <Route path="/" exact>
           <HomePage />
         </Route>
-
+        <Route path="/Products">
+          <ProductPage />
+        </Route>
       </Router>
     </div>
     </>

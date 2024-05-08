@@ -4,27 +4,21 @@ import Button from './Button';
 import './FilterDataCard.css'
 import { useGetAllProductsQuery } from "../../Commons/Features/productsApi";
 
-import items from '../imagesList';
-
-
-
-
+import listData from '../../Commons/imagesList';
 //data &&   data?.map((product) => 
-
 
 function FilterDataCard() {
   const { data, error, isLoading } = useGetAllProductsQuery();
-   const allCategories = ['All', ...new Set(items?.map(a => a.category))];
- 
-  const [menuItem, setMenuItem] = useState(items);
+   const allCategories =['All', 'Laundry Image', 'Floor Cleaning', 'Glass Cleaning', 'Air Freshner', 'Dish Wash']  
+  const [menuItem, setMenuItem] = useState(listData);
     const [buttons, setButtons] = useState(allCategories);
 console.log(allCategories)
     const filter = (button) =>{
       if(button === 'All'){
-        setMenuItem(items);
+        setMenuItem(listData);
         return;
       }
-      const filteredData = items.filter(item => item.category ===  button);
+      const filteredData = listData.filter(item => item.category ===  button);
       setMenuItem(filteredData)
     }  
     return (
@@ -34,7 +28,7 @@ console.log(allCategories)
              Category <span> Filter</span>
            </h1>
          </div> 
-       
+         <Button button={buttons}   filter={filter}/>
          <Menu menuItem={menuItem}/>
         </div>
     );

@@ -1,6 +1,6 @@
 
-//const listData = [
-    export const listData = [
+const listData = [
+
     {
         id: 1,
         category: 'Laundry Image',
@@ -71,4 +71,4 @@
 
 ];
 
-//module.exports = listData  ;
+module.exports = listData  ;
