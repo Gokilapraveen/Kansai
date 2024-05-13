@@ -1,0 +1,29 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "category": "Laundry Image",
+      "image": "https://drive.google.com/thumbnail?id=1OEJ4kyFOGtfKLthqy2Pn3wu4NHFUszpn",
+      "title": "Laundry Liquid",
+      "subtitle": "Shade",
+      " description": "Shade has special formulation completely meet the needs of Commercial, Industrial, Hospital and Hotel laundries. A less foaming liquid, prepared to give best results even in hard water with easy dosing comprising of enzyme boosters, special plant surfactant blends make cloths fresh and bright after wash, smelling pleasant without damaging the fabric and remove stubborn stains.",
+      "dilution": "50mL/ (6 kg Machine)",
+      "price": 400,
+      "quantity ": [
+        1,
+        50,
+        25
+      ]
+    },
+    {
+      "id": "2",
+      "category": "21",
+      "image": "2121",
+      "title": "23123",
+      "subtitle": "2323",
+      "description": "2323",
+      "price": "12312",
+      "quantity": "312"
+    }
+  ]
+}
