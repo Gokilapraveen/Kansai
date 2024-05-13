@@ -9,7 +9,7 @@
   "scripts": {
     "server" :" json-server --watch db.json --port 3003"
   },
-  "author": "",
+  "author": "Gokilavani",
   "license": "ISC",
   "description": ""
 }
