@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 
 import HomePage from './Component/HomePage'
 import ProductPage from './Component/ProductPage'
+import Login from './Component/admin-console/login/login';
+import DataUpdate from './Component/admin-console/DataUpdate'
 
 function App() { 
   const { cartTotalQuantity } = useSelector((state) => state.cart);
@@ -37,6 +39,11 @@ function App() {
         <Route path="/Products">
           <ProductPage />
         </Route>
+        <Route path="/Login">
+          <Login />
+        </Route>
+        <DataUpdate/>
+
       </Router>
     </div>
     </>

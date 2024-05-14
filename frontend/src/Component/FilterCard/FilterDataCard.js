@@ -12,7 +12,6 @@ function FilterDataCard() {
    const allCategories =['All', 'Laundry Image', 'Floor Cleaning', 'Glass Cleaning', 'Air Freshner', 'Dish Wash']  
   const [menuItem, setMenuItem] = useState(listData);
     const [buttons, setButtons] = useState(allCategories);
-console.log(allCategories)
     const filter = (button) =>{
       if(button === 'All'){
         setMenuItem(listData);
