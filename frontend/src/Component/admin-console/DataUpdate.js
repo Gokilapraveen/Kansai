@@ -71,6 +71,13 @@ function DataUpdate() {
   function handleEdit(id) {
     setUpdateState(id);
   }
+function handleUpdate(e){
+  setUpdateState(-1)
+}
+function ReptileListItems(quantity) {
+  
+  return quantity.map((reptile) => <li>{reptile}</li>);
+}
 
   return (<>
     <div class="updateForm container">
@@ -111,7 +118,8 @@ function DataUpdate() {
           placeholder="Insert description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-        /></div>
+        />
+        </div>
       <button onClick={AddProducts} class="btn btn-primary insertProduct">Insert</button>
     </div>
 
@@ -122,15 +130,15 @@ function DataUpdate() {
       <div className="stock-container">
 
         <div class="stockdetail">
-          <table class="stockTable">
+         <form onSubmit={handleUpdate}><table class="stockTable">
             <tbody>
-              <tr><th>ID</th> <th>catagory</th> <th>Image</th> <th>Title</th>  <th> Subtitle </th> <th>DESC</th><th></th></tr>
+              <tr><th>ID</th> <th>catagory</th> <th>Image</th> <th>Title</th>  <th> Subtitle </th> <th>DESC</th><th>Price</th><th>Quantity</th><th></th></tr>
               {products && products?.map((data) => {
               <div> 
               
               </div> 
                 return (
-                  <> updateState === data.id ? <Edit data={data} /> <tr>
+                  <> {updateState === data.id ? <Edit data={data}  products={products} setProducts={setProducts}/> :  <tr>
                     <td>
                       <h5>{data.id}</h5>
                     </td>
@@ -150,27 +158,43 @@ function DataUpdate() {
                       <h5>{data.description}</h5>
                     </td>
                     <td>
-                      <button onClick={() => { deleteProduct(data.id) }} >Delete</button>
-                      <button onClick={() => handleEdit(data.id)} >Edit</button>
-                      {isOpen && <Popup content={<> <input type="text" value={data.title} /> <img src={data.image}></img>
-                        <button onClick={() => { updateProduct(data.id) }} >Add </button> </>} handleClose={togglePopup} />}
+                      <h5>{data.price}</h5>
                     </td>
-                  </tr>
+                    <td>
+                      <h5>{ReptileListItems(data.quantity)}</h5>
+                    </td>
+                    <td class= "formAction">
+                      <button class="btn btn-primary" onClick={() => { deleteProduct(data.id) }} >Delete</button>
+                      <button class="btn btn-primary" onClick={() => handleEdit(data.id)} >Edit</button>
+                    </td>
+                  </tr>}
                   </>
                 );
               })}
             </tbody>
-          </table>
+          </table></form> 
         </div>
       </div>
     </div>
   </>
   );
 }
-function Edit({data}){
+function Edit({data,products,setProducts}){
+function handleInput(e){
+  const newProduct =products.map(a => ( a.id == data.id ? {...a,[e.target.value] :e.target.value} :a ))
+  setProducts(newProduct)
+}
+
   return (
     <tr>
-      <td><input type="text" name="title" value={data.category}/></td>
+      <td>{data.id}</td>
+      <td><input type="text" name="title" onChange={handleInput} value={data.category}/></td>
+      <td><input type="text" name="title" onChange={handleInput} value={data.image}/></td>
+      <td><input type="text" name="title" onChange={handleInput} value={data.title}/></td>
+      <td><input type="text" name="title" onChange={handleInput} value={data.subtitle}/></td>
+      <td><input type="text" name="title" onChange={handleInput} value={data.description}/></td>
+      <td><input type="text" name="title" onChange={handleInput} value={data.price}/></td>
+      <td><input type="text" name="title" onChange={handleInput} value={data.quantity}/></td>
       <td> <button  class="btn btn-primary insertProduct">Insert</button></td></tr>
   )
 }

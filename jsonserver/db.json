@@ -1,22 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
-      "category": "Laundry Image",
-      "image": "https://drive.google.com/thumbnail?id=1OEJ4kyFOGtfKLthqy2Pn3wu4NHFUszpn",
-      "title": "Laundry Liquid",
-      "subtitle": "Shade",
-      "description": "Shade has special formulation completely meet the needs of Commercial, Industrial, Hospital and Hotel laundries. A less foaming liquid, prepared to give best results even in hard water with easy dosing comprising of enzyme boosters, special plant surfactant blends make cloths fresh and bright after wash, smelling pleasant without damaging the fabric and remove stubborn stains.",
-      "dilution": "50mL/ (6 kg Machine)",
-      "price": 400,
-      "quantity": [
-        1,
-        50,
-        25
-      ]
-    },
-    {
-      "id": 2,
+      "id": "2",
       "category": "Laundry Image",
       "image": "https://drive.google.com/thumbnail?id=1iEY4ft2aez8hx3WSVEungRC_0UwrT5_9",
       "title": "Laundry Liquid (Carpet & Blankets)",
@@ -31,7 +16,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "category": "Floor Cleaning",
       "image": "https://drive.google.com/thumbnail?id=1iEY4ft2aez8hx3WSVEungRC_0UwrT5_9",
       "title": "Floor Cleaner(Anti Bacterial)",
@@ -39,14 +24,14 @@
       "description": "Hyklen is a formulation of concentrated liquid disinfectants, effectively cleans all surfaces with no germs at all. An user friendly liquid that retains the texture of the floor.</br>  Area of Application: Hard Surfaces, Tiles, Granite, Marbles etc.,",
       "price": 40,
       "dilution": "50mL/ 5 Liter",
-      "quantity ": [
+      "quantity": [
         1,
         50,
         25
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "category": "Glass Cleaning",
       "image": "https://drive.google.com/thumbnail?id=1iEY4ft2aez8hx3WSVEungRC_0UwrT5_9",
       "title": "Glass Cleaning",
@@ -61,7 +46,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "5",
       "category": "Air Freshner",
       "image": "https://drive.google.com/thumbnail?id=1lqaVFD3c-5GBiqR5A0qZmyLnPI_Lg2gV",
       "title": "AirFreshener",
@@ -76,7 +61,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": "6",
       "category": "Dish Wash",
       "image": "https://drive.google.com/thumbnail?id=1ARZ8-nGYk3SNPxZNmBe9-acHWeZJE4Jr",
       "title": "Dish Wash",

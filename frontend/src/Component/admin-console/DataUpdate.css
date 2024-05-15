@@ -35,3 +35,7 @@
     background-color: #04AA6D;
     color: white;
 }
+.formAction{
+    display: flex;
+    padding-top: 100px ! important;
+}
