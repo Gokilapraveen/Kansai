@@ -2,13 +2,10 @@ import { useState } from 'react';
 import Menu from './Menu';
 import Button from './Button';
 import './FilterDataCard.css'
-import { useGetAllProductsQuery } from "../../Commons/Features/productsApi";
-
 import listData from '../../Commons/imagesList';
-//data &&   data?.map((product) => 
 
 function FilterDataCard() {
-  const { data, error, isLoading } = useGetAllProductsQuery();
+ 
    const allCategories =['All', 'Laundry Image', 'Floor Cleaning', 'Glass Cleaning', 'Air Freshner', 'Dish Wash']  
   const [menuItem, setMenuItem] = useState(listData);
     const [buttons, setButtons] = useState(allCategories);

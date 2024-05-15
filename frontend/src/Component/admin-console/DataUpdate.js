@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import Popup from "../Card/popup/popup";
-
+import './DataUpdate.css'
 function DataUpdate() {
   const [products, setProducts] = useState([]);
   const [id, setId] = useState();
@@ -28,7 +28,7 @@ function DataUpdate() {
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
-      setIsOpen(!isOpen);
+    setIsOpen(!isOpen);
   }
   const AddProducts = () => {
     Axios
@@ -67,51 +67,55 @@ function DataUpdate() {
     }, 500)
   }
 
-
+  const [updateState, setUpdateState] = useState(-1);
+  function handleEdit(id) {
+    setUpdateState(id);
+  }
 
   return (<>
-    <div class="updateForm">
-
-      <input
-        type="text"
-        placeholder="Insert Id"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Insert cat"
-        value={category}
-        onChange={(e) => setCatagory(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Insert image"
-        value={image}
-        onChange={(e) => setImage(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Insert title"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Insert subtitle"
-        value={subtitle}
-        onChange={(e) => setSubtitle(e.target.value)}
-      />
-      <input
-        type="text"
-        placeholder="Insert description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-      />
-      <button onClick={AddProducts}>Insert</button>
+    <div class="updateForm container">
+      <h2>New Record</h2>
+      <div class="rows">
+        <input
+          type="text"
+          placeholder="Insert Id"
+          value={id}
+          onChange={(e) => setId(e.target.value)}
+        /></div> <div class="rows">
+        <input
+          type="text"
+          placeholder="Insert cat"
+          value={category}
+          onChange={(e) => setCatagory(e.target.value)}
+        />    </div> <div class="rows">
+        <input
+          type="text"
+          placeholder="Insert image"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />    </div> <div class="rows">
+        <input
+          type="text"
+          placeholder="Insert title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        /></div> <div class="rows">
+        <input
+          type="text"
+          placeholder="Insert subtitle"
+          value={subtitle}
+          onChange={(e) => setSubtitle(e.target.value)}
+        /></div> <div class="rows">
+        <input
+          type="text"
+          placeholder="Insert description"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        /></div>
+      <button onClick={AddProducts} class="btn btn-primary insertProduct">Insert</button>
     </div>
 
-    <div class="StockUpdate">
+    <div class="StockUpdate container">
       <header className="header">
         <h2>Your Stock Tracker</h2>
       </header>
@@ -120,10 +124,13 @@ function DataUpdate() {
         <div class="stockdetail">
           <table class="stockTable">
             <tbody>
-              <tr><th>ID</th> <th>catagory</th> <th>Image</th> <th>Title</th>  <th> Subtitle </th> <th>DESC</th></tr>
+              <tr><th>ID</th> <th>catagory</th> <th>Image</th> <th>Title</th>  <th> Subtitle </th> <th>DESC</th><th></th></tr>
               {products && products?.map((data) => {
+              <div> 
+              
+              </div> 
                 return (
-                  <>                    <tr>
+                  <> updateState === data.id ? <Edit data={data} /> <tr>
                     <td>
                       <h5>{data.id}</h5>
                     </td>
@@ -143,21 +150,28 @@ function DataUpdate() {
                       <h5>{data.description}</h5>
                     </td>
                     <td>
-                      <button onClick={() => { deleteProduct(data.id) }} >delete </button>
-                      <button onClick={togglePopup} >Update</button>
-                      {isOpen && <Popup  content={<> <input type="text" value={data.title}/> <img src={data.image}></img> 
-                          <button onClick={() => { updateProduct(data.id) }} >Add </button> </> } handleClose={togglePopup} />}
+                      <button onClick={() => { deleteProduct(data.id) }} >Delete</button>
+                      <button onClick={() => handleEdit(data.id)} >Edit</button>
+                      {isOpen && <Popup content={<> <input type="text" value={data.title} /> <img src={data.image}></img>
+                        <button onClick={() => { updateProduct(data.id) }} >Add </button> </>} handleClose={togglePopup} />}
                     </td>
                   </tr>
                   </>
                 );
-              })}                
-              </tbody>
+              })}
+            </tbody>
           </table>
         </div>
       </div>
     </div>
   </>
   );
+}
+function Edit({data}){
+  return (
+    <tr>
+      <td><input type="text" name="title" value={data.category}/></td>
+      <td> <button  class="btn btn-primary insertProduct">Insert</button></td></tr>
+  )
 }
 export default DataUpdate;
