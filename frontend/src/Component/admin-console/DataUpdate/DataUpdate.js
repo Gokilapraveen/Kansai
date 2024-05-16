@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import Popup from "../Card/popup/popup";
-import './DataUpdate.css'
+import './DataUpdate.css';
+
 function DataUpdate() {
   const [products, setProducts] = useState([]);
   const [id, setId] = useState();
@@ -21,15 +21,8 @@ function DataUpdate() {
     const response = await Axios.get("http://localhost:3003/products");
     setProducts(response.data);
   };
-  const updateProduct = (id) => {
-    console.log("update", id)
 
-  }
-  const [isOpen, setIsOpen] = useState(false);
-
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  }
+ 
   const AddProducts = () => {
     Axios
       .post("http://localhost:3003/products", {
@@ -72,11 +65,12 @@ function DataUpdate() {
     setUpdateState(id);
   }
 function handleUpdate(e){
+  e.preventDefault();
   setUpdateState(-1)
 }
-function ReptileListItems(quantity) {
-  
-  return quantity.map((reptile) => <li>{reptile}</li>);
+function qualityUpdate(quantity) {  
+  const quantityval = quantity && quantity?.map((a) => <li>{a}</li>);
+  return quantityval;
 }
 
   return (<>
@@ -91,7 +85,7 @@ function ReptileListItems(quantity) {
         /></div> <div class="rows">
         <input
           type="text"
-          placeholder="Insert cat"
+          placeholder="Insert category"
           value={category}
           onChange={(e) => setCatagory(e.target.value)}
         />    </div> <div class="rows">
@@ -161,7 +155,7 @@ function ReptileListItems(quantity) {
                       <h5>{data.price}</h5>
                     </td>
                     <td>
-                      <h5>{ReptileListItems(data.quantity)}</h5>
+                      <h5>{qualityUpdate(data.quantity)}</h5>
                     </td>
                     <td class= "formAction">
                       <button class="btn btn-primary" onClick={() => { deleteProduct(data.id) }} >Delete</button>
@@ -180,22 +174,24 @@ function ReptileListItems(quantity) {
   );
 }
 function Edit({data,products,setProducts}){
-function handleInput(e){
-  const newProduct =products.map(a => ( a.id == data.id ? {...a,[e.target.value] :e.target.value} :a ))
-  setProducts(newProduct)
+  function handleInput(e){
+    const newProduct =products.map(a => ( a.id == data.id ? { 
+      ...a,[e.target.name] :e.target.value    
+    } :a ))
+  setProducts(newProduct);
 }
 
   return (
     <tr>
       <td>{data.id}</td>
-      <td><input type="text" name="title" onChange={handleInput} value={data.category}/></td>
-      <td><input type="text" name="title" onChange={handleInput} value={data.image}/></td>
+      <td><input type="text" name="category" onChange={handleInput} value={data.category}/></td>
+      <td><input type="text" name="image" onChange={handleInput} value={data.image}/></td>
       <td><input type="text" name="title" onChange={handleInput} value={data.title}/></td>
-      <td><input type="text" name="title" onChange={handleInput} value={data.subtitle}/></td>
-      <td><input type="text" name="title" onChange={handleInput} value={data.description}/></td>
-      <td><input type="text" name="title" onChange={handleInput} value={data.price}/></td>
-      <td><input type="text" name="title" onChange={handleInput} value={data.quantity}/></td>
-      <td> <button  class="btn btn-primary insertProduct">Insert</button></td></tr>
+      <td><input type="text" name="subtitle" onChange={handleInput} value={data.subtitle}/></td>
+      <td><input type="text" name="description" onChange={handleInput} value={data.description}/></td>
+      <td><input type="text" name="price" onChange={handleInput} value={data.price}/></td>
+      <td><input type="text" name="quantity" onChange={handleInput} value={data.quantity}/></td>
+      <td> <button  class="btn btn-primary insertProduct" type="submit">Insert</button></td></tr>
   )
 }
 export default DataUpdate;
