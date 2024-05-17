@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
@@ -6,20 +6,30 @@ import {
   decreaseCart,
   getTotals,
   removeFromCart,
-} from '../../Commons/Features/cartSlice';
-import './Cart.css'
+} from "../../Commons/Features/cartSlice";
+import "./Cart.css";
 import { Link } from "react-router-dom";
-
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
 
-  const cartItems = useSelector((state) => state.cart.cartItems.map((cartItem) => (  "Product Id - "+ cartItem.id +" ,Name - "+ cartItem.title +" ,Quantity - "+ cartItem.cartQuantity  )));
-  console.log("cartItems" + cartItems)
+  const cartItems = useSelector((state) =>
+    state.cart.cartItems.map(
+      (cartItem) =>
+        "Product Id - " +
+        cartItem.id +
+        " ,Name - " +
+        cartItem.title +
+        " ,Quantity - " +
+        cartItem.cartQuantity
+    )
+  );
   const onSubmit = (e) => {
-    
-    window.open("https://wa.me/918220328391?text=Hello Sir willing to place the order/n" +cartItems );
-  }
+    window.open(
+      "https://wa.me/918220328391?text=Hello Sir willing to place the order/n" +
+        cartItems
+    );
+  };
 
   const dispatch = useDispatch();
 
@@ -38,6 +48,10 @@ const Cart = () => {
   };
   const handleClearCart = () => {
     dispatch(clearCart());
+  };
+  const getPrice = (id) => {
+    const currentDetails = localStorage.getItem("currentProductDetails");
+    console.log(currentDetails);
   };
   return (
     <div className="cart-container">
@@ -75,7 +89,11 @@ const Cart = () => {
           <div className="cart-items">
             {cart.cartItems &&
               cart.cartItems.map((cartItem) => (
-                <div className="cart-item" data-field= {cartItem.id} key={cartItem.id}>
+                <div
+                  className="cart-item"
+                  data-field={cartItem.id}
+                  key={cartItem.id}
+                >
                   <div className="cart-product">
                     <img src={cartItem.image} alt={cartItem.title} />
                     <div>
@@ -86,7 +104,9 @@ const Cart = () => {
                       </button>
                     </div>
                   </div>
-                  <div className="cart-product-price">${cartItem.price}</div>
+                  <div className="cart-product-price">
+                    {getPrice(cartItem.id)}
+                  </div>
                   <div className="cart-product-quantity">
                     <button onClick={() => handleDecreaseCart(cartItem)}>
                       -

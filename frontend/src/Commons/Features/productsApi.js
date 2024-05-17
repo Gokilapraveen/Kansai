@@ -6,12 +6,11 @@ export const productsApi = createApi({
   reducerPath: "productsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3003/" }),
   endpoints: (builder) => ({
-    getAllProducts: builder.query({    
-      query: () => 'products',
+    getAllProducts: builder.query({
+      query: () => "products",
     }),
   }),
 });
-console.log("productsApi",productsApi)
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
 export const { useGetAllProductsQuery } = productsApi;
