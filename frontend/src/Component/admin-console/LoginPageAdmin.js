@@ -1,16 +1,16 @@
-import { BrowserRouter as Router , Route, Link } from 'react-router-dom';
-import Login from './login/login';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Login from "./login/login";
 
 const LoginAction = () => {
-    return ( 
-        <>
-       <Router>
-       <Route path="/Login">
+  return (
+    <>
+      <Router>
+        <Route path="/Login">
           <Login />
         </Route>
-       </Router>
-        </>
-     );
-}
- 
+      </Router>
+    </>
+  );
+};
+
 export default LoginAction;
