@@ -2,9 +2,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addToCart } from "../../Commons/Features/cartSlice";
-import { useGetAllProductsQuery } from "../../Commons/Features/productsApi";
 import { useEffect, useState } from "react";
 import Axios from "axios";  
+
 function ProductCart (){
     const [data ,setData]= useState([]);
     useEffect(() => {
@@ -19,28 +19,25 @@ function ProductCart (){
         const { items: products, status } = useSelector((state) => state.products);
         const dispatch = useDispatch();
         const history = useHistory();
-      
-     //   const { data, error, isLoading } = useGetAllProductsQuery();
-     //   console.log("Api", isLoading);
-      
         const handleAddToCart = (product) => {
           dispatch(addToCart(product));
           history.push("/cart");
         };
       
         return (
-          <div className="home-container">
+          <div className="home-container container" id="productDetails">
             {status === "success" ? (<>
-                <div className="products">
+            <h2>Product Details</h2>
+                <div className="products row">
                   {data &&
                     data?.map((product) => (
-                      <div key={product.id} className="product">
-                        <h3>{product.name}</h3>
+                      <div key={product.id} className="product col-md-4 col-6">
+                        <h3>{product.subtitle} - <sub>{product.quantity}</sub></h3>
                         
-                        <img src={product.image} alt={product.name} />
+                        <img src={product.image} alt={product.title} />
                         <div className="details">
-                          <span>{product.desc}</span>
-                          <span className="price">${product.price}</span>
+                        Quantity :  <span>{product.quantity}</span> <br/>
+                        Price :   <span className="price">{product.price}</span>
                         </div>
                         <button onClick={() => handleAddToCart(product)}>
                           Add To Cart

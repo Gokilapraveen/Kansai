@@ -72,7 +72,7 @@ function Login() {
     <> {
       !sessionStorage.getItem("Loggedin") ? "Sign in PLease " :
         <div> Welcome
-          <button class="btn btn-primary" onClick={() => logoutSession()} >Logout</button>
+          <button className="btn btn-primary" onClick={() => logoutSession()} >Logout</button>
           <DataUpdate /> </div>
     }
     </>

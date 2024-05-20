@@ -74,39 +74,39 @@ function qualityUpdate(quantity) {
 }
 
   return (<>
-    <div class="updateForm container">
+    <div className="updateForm container">
       <h2>New Record</h2>
-      <div class="rows">
+      <div className="rows">
         <input
           type="text"
           placeholder="Insert Id"
           value={id}
           onChange={(e) => setId(e.target.value)}
-        /></div> <div class="rows">
+        /></div> <div className="rows">
         <input
           type="text"
           placeholder="Insert category"
           value={category}
           onChange={(e) => setCatagory(e.target.value)}
-        />    </div> <div class="rows">
+        />    </div> <div className="rows">
         <input
           type="text"
           placeholder="Insert image"
           value={image}
           onChange={(e) => setImage(e.target.value)}
-        />    </div> <div class="rows">
+        />    </div> <div className="rows">
         <input
           type="text"
           placeholder="Insert title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-        /></div> <div class="rows">
+        /></div> <div className="rows">
         <input
           type="text"
           placeholder="Insert subtitle"
           value={subtitle}
           onChange={(e) => setSubtitle(e.target.value)}
-        /></div> <div class="rows">
+        /></div> <div className="rows">
         <input
           type="text"
           placeholder="Insert description"
@@ -114,17 +114,17 @@ function qualityUpdate(quantity) {
           onChange={(e) => setDescription(e.target.value)}
         />
         </div>
-      <button onClick={AddProducts} class="btn btn-primary insertProduct">Insert</button>
+      <button onClick={AddProducts} className="btn btn-primary insertProduct">Insert</button>
     </div>
 
-    <div class="StockUpdate container">
+    <div className="StockUpdate container">
       <header className="header">
         <h2>Your Stock Tracker</h2>
       </header>
       <div className="stock-container">
 
-        <div class="stockdetail">
-         <form onSubmit={handleUpdate}><table class="stockTable">
+        <div className="stockdetail">
+         <form onSubmit={handleUpdate}><table className="stockTable">
             <tbody>
               <tr><th>ID</th> <th>catagory</th> <th>Image</th> <th>Title</th>  <th> Subtitle </th> <th>DESC</th><th>Price</th><th>Quantity</th><th></th></tr>
               {products && products?.map((data) => {
@@ -157,9 +157,9 @@ function qualityUpdate(quantity) {
                     <td>
                       <h5>{qualityUpdate(data.quantity)}</h5>
                     </td>
-                    <td class= "formAction">
-                      <button class="btn btn-primary" onClick={() => { deleteProduct(data.id) }} >Delete</button>
-                      <button class="btn btn-primary" onClick={() => handleEdit(data.id)} >Edit</button>
+                    <td className= "formAction">
+                      <button className="btn btn-primary" onClick={() => { deleteProduct(data.id) }} >Delete</button>
+                      <button className="btn btn-primary" onClick={() => handleEdit(data.id)} >Edit</button>
                     </td>
                   </tr>}
                   </>
@@ -191,7 +191,7 @@ function Edit({data,products,setProducts}){
       <td><input type="text" name="description" onChange={handleInput} value={data.description}/></td>
       <td><input type="text" name="price" onChange={handleInput} value={data.price}/></td>
       <td><input type="text" name="quantity" onChange={handleInput} value={data.quantity}/></td>
-      <td> <button  class="btn btn-primary insertProduct" type="submit">Insert</button></td></tr>
+      <td> <button  className="btn btn-primary insertProduct" type="submit">Insert</button></td></tr>
   )
 }
 export default DataUpdate;

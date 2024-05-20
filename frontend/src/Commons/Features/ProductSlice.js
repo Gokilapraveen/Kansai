@@ -13,7 +13,6 @@ const initialState = {
         const response = await axios.get(
           "http://localhost:3003/products"
         );
-        console.log( "Respoinse",response.data)
         return response.data;
       } catch (error) {
         console.log(error);
