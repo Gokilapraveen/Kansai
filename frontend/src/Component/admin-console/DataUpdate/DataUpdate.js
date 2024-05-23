@@ -68,10 +68,7 @@ function handleUpdate(e){
   e.preventDefault();
   setUpdateState(-1)
 }
-function qualityUpdate(quantity) {  
-  const quantityval = quantity && quantity?.map((a) => <li>{a}</li>);
-  return quantityval;
-}
+
 
   return (<>
     <div className="updateForm container">
@@ -155,7 +152,7 @@ function qualityUpdate(quantity) {
                       <h5>{data.price}</h5>
                     </td>
                     <td>
-                      <h5>{qualityUpdate(data.quantity)}</h5>
+                      <h5>{data.quantity}</h5>
                     </td>
                     <td className= "formAction">
                       <button className="btn btn-primary" onClick={() => { deleteProduct(data.id) }} >Delete</button>

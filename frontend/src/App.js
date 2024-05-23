@@ -1,6 +1,6 @@
 import './App.css';
 import Logo from './IMAGELOGO.svg'
-import { BrowserRouter as Router, Route, Link,Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Redirect, Switch } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import Footer from './Component/Footer/Footer'
 import HomePage from './Component/HomePage'
@@ -11,9 +11,9 @@ import NotFound from './Component/404Page/Notfound';
 
 function App() {
   const { cartTotalQuantity } = useSelector((state) => state.cart);
-  
+
   return (<>
-    <div className='App'> 
+    <div className='App'>
       <Router>
         <header className='app-header'>
           <nav className="nav-bar">
@@ -33,7 +33,8 @@ function App() {
             </Link>
           </nav>
         </header>
-<Navbar/>
+        <Navbar />
+        <Switch>
         <Route path="/" exact>
           <HomePage />
         </Route>
@@ -41,11 +42,10 @@ function App() {
         <Route path="/Products">
           <ProductPage />
         </Route>
-
         <Route path="/404" component={NotFound} />
-        <Redirect to ="/404"></Redirect>
-             </Router>
-             <Footer/>
+        <Redirect to="/404"></Redirect></Switch>
+      </Router>
+      <Footer />
 
     </div>
   </>
