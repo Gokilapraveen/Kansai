@@ -10,7 +10,6 @@
       "price": "300",
       "dilution": "50mL/ (6 kg Machine)",
       "quantity": "1L"
-      
     },
     {
       "id": "3",
@@ -30,7 +29,7 @@
       "title": "Floor Cleaner(Anti Bacterial)",
       "subtitle": "Hyklen",
       "description": "Hyklen is a formulation of concentrated liquid disinfectants, effectively cleans all surfaces with no germs at all. An user friendly liquid that retains the texture of the floor.</br>  Area of Application: Hard Surfaces, Tiles, Granite, Marbles etc.,",
-      "price":"40",
+      "price": "40",
       "dilution": "50mL/ 5 Liter",
       "quantity": "1L"
     },
@@ -43,8 +42,7 @@
       "description": "Radianz gives glittering effect with ready to use and streak free formulation. Its an environmentally safe product and leaves no residue and quick drying. Area of Application : Glass Surfaces, Mirrors, Frames, Plastics.",
       "price": "50",
       "dilution": "",
-      "quantity":"25L"
-      
+      "quantity": "25L"
     },
     {
       "id": "6",
@@ -55,7 +53,7 @@
       "description": "Frezin has non - aerosol water based blends remove all disturbing room odours and give an eco - safe pleasant and long lasting fragrances. Area of Application: Rooms, Corridors, Wash Rooms, Guest rooms, 'Cinema Hall, Auditorium, etc.,",
       "price": "20",
       "dilution": "",
-      "quantity":"25L"
+      "quantity": "25L"
     },
     {
       "id": "7",
@@ -66,7 +64,7 @@
       "description": "Neel is a concentrate gel safe for skin and hands while washing with its neutral formulation gives gentle action. It makes no streak and spot free dishes by fighting on oil stuffs and food stains (Biodegradable) Food Industry, Restaurant, Hotel Kitchens suits for porcelain, Stainless Steel, Plastic and Cutlery",
       "price": "10",
       "dilution": "50mL/Liter",
-      "quantity":"8L"
+      "quantity": "8L"
     },
     {
       "id": "8",
@@ -75,10 +73,10 @@
       "title": "Laundry Liquid",
       "subtitle": "Shade",
       "description": "Shade has special formulation completely meet the needs of Commercial, Industrial, Hospital and Hotel laundries. A less foaming liquid, prepared to give best results even in hard water with easy dosing comprising of enzyme boosters, special plant surfactant blends make cloths fresh and bright after wash, smelling pleasant without damaging the fabric and remove stubborn stains.\",       \"dilution\": \"50mL/ (6 kg Machine",
-      "quantity":"8L",
+      "quantity": "8L",
       "dilution": "50mL/Liter",
-      "price":"20"
-    },  
+      "price": "20"
+    },
     {
       "id": "9",
       "category": "Laundry Image",
@@ -86,9 +84,19 @@
       "title": "Laundry Liquid1",
       "subtitle": "Shade1",
       "description": "Shade has special formulation completely meet the needs of Commercial, Industrial, Hospital and Hotel laundries. A less foaming liquid, prepared to give best results even in hard water with easy dosing comprising of enzyme boosters, special plant surfactant blends make cloths fresh and bright after wash, smelling pleasant without damaging the fabric and remove stubborn stains.\",       \"dilution\": \"50mL/ (6 kg Machine",
-      "quantity":"8L",
+      "quantity": "8L",
       "dilution": "50mL/Liter",
-      "price":"20"
+      "price": "20"
+    },
+    {
+      "id": "12",
+      "category": "dmnfdm",
+      "image": "mmnvm,xc ",
+      "title": "n,m",
+      "subtitle": "nm,",
+      "description": "m,,mc  nv,mxcv nxvm,xnv n,mzv,mznv,mz n,mn,,m",
+      "price": "15",
+      "quantity": "32"
     }
   ]
 }
