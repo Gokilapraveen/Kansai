@@ -1,6 +1,6 @@
-import { BrowserRouter as Router , Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router , Route } from 'react-router-dom';
 import Login from './login/login';
-
+import EditData from "./DataUpdate/EditData"
 const LoginAction = () => {
     return ( 
         <>
@@ -8,6 +8,8 @@ const LoginAction = () => {
        <Route path="/Login">
           <Login />
         </Route>
+
+        <Route path='/update/:id' element={<EditData/>}/>
        </Router>
         </>
      );

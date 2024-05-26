@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"; import "./FilterDataCard.css";
 import Menu from "./Menu";
-import './dropdown.js'
 
 function FilterDataCard() {
   const [loading, setLoading] = useState(false);
@@ -37,40 +36,55 @@ function FilterDataCard() {
       setProductList(data);
       setFilteredProductList(data);
       setCategories(allCategories); // get the categories list  
-     })   .catch((err) => alert(err))   .finally(() => {    setLoading(false);   }); };
-      useEffect(() => {
-        getProducts();
-      }, []);
-      return (
-        <div className="w-screen h-screen px-5 bg-gray-100 flex justify-center items-center ">
-          <h2 className="mx-3 ml-5 font-medium catagoryProduct ">Categories</h2>
-          <div className="w-full h-[90%] rounded-md bg-white">
-            <div className="relative w-full h-[15%] flex items-center overflow-x-auto productList productCatagoryDesktop">
-              {categories.map((category) => (<button onClick={() => {
-                if (selectedCategories.includes(category)) {
-                  removeCategory(category);
-                }
-                else {
-                  addCategory(category);
-                }
-              }}
-                className={`selectcat ${selectedCategories.includes(category) ? "btn btn-success" : " btn btn-primary btn-lg"} `}      >
-                {category}      </button>))}
-              <button onClick={() => resetCategory()
+    }).catch((err) => alert(err)).finally(() => { setLoading(false); });
+  };
+  useEffect(() => {
+    getProducts();
+  }, []);
+  return (
+    <div className="w-screen h-screen px-5 bg-gray-100 flex justify-center items-center ">
+      <h2 className="mx-3 ml-5 font-medium catagoryProduct ">Categories</h2>
+      <div className="w-full h-[90%] rounded-md bg-white">
+        <div className="relative w-full h-[15%] flex items-center overflow-x-auto productList productCatagoryDesktop">
+          {categories.map((category, index) => (<button key={index} onClick={() => {
+            if (selectedCategories.includes(category)) {
+              removeCategory(category);
+            }
+            else {
+              addCategory(category);
+            }
+          }}
+            className={`selectcat ${selectedCategories.includes(category) ? "btn btn-success" : " btn btn-primary btn-lg"} `}      >
+            {category}      </button>))}
+          <button onClick={() => resetCategory()
 
-              } className={`${selectedCategories.length > 0 ? "opacity-100" : "opacity-0 pointer-events-none"} btn btn-primary`}     >   
-                 Clear selection     </button>    </div>
+          } className={`${selectedCategories.length > 0 ? "opacity-100" : "opacity-0 pointer-events-none"} btn btn-dark`}     >
+            Clear selection     </button>    </div>
 
-                 <div class="productCatagoryMobile"><div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div></div>
-            {
-              <Menu menuItem={fileredProductList} loading={loading} />}   </div>  </div>
-            );
-    }
-    export default FilterDataCard;
+        {/* <div class="productCatagoryMobile"><div class="dropdown">
+          <button onClick={(ele) => myFunction()} class="dropbtn" id="dropdownlabel">All</button>
+          <div id="myDropdown" class="dropdown-content">
+            {categories.map((category, index) => (<a href="#" key={index} onClick={() => {
+              if (selectedCategories.includes(category)) {
+                removeCategory(category);
+              }
+              else {
+                addCategory(category);
+              }
+            }}
+              className={`selectcat ${selectedCategories.includes(category) ? "btn btn-success" : " btn btn-primary btn-lg"} `}      >
+              {category}   </a>))}
+
+          </div>
+        </div></div> */}
+        {
+          <Menu menuItem={fileredProductList} loading={loading} />
+          }   </div>  
+          
+          <a href="/Products">Click here for Order</a>
+          </div>
+  );
+}
+
+
+export default FilterDataCard;

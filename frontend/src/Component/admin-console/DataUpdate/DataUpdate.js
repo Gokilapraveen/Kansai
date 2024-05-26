@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Axios from "axios";
+import { Link} from 'react-router-dom';
 import './DataUpdate.css';
 
 function DataUpdate() {
@@ -60,14 +61,14 @@ function DataUpdate() {
     }, 500)
   }
 
-  const [updateState, setUpdateState] = useState(-1);
-  function handleEdit(id) {
-    setUpdateState(id);
-  }
-function handleUpdate(e){
-  e.preventDefault();
-  setUpdateState(-1)
-}
+//   const [updateState, setUpdateState] = useState(-1);
+//   function handleEdit(id) {
+//     setUpdateState(id);
+//   }
+// function handleUpdate(e){
+//   e.preventDefault();
+//   setUpdateState(-1)
+// }
 
 
   return (<>
@@ -110,6 +111,18 @@ function handleUpdate(e){
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
+          <input
+          type="text"
+          placeholder="Insert price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+          <input
+          type="text"
+          placeholder="Insert quantity"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+        />
         </div>
       <button onClick={AddProducts} className="btn btn-primary insertProduct">Insert</button>
     </div>
@@ -121,7 +134,7 @@ function handleUpdate(e){
       <div className="stock-container">
 
         <div className="stockdetail">
-         <form onSubmit={handleUpdate}><table className="stockTable">
+         <form ><table className="stockTable">
             <tbody>
               <tr><th>ID</th> <th>catagory</th> <th>Image</th> <th>Title</th>  <th> Subtitle </th> <th>DESC</th><th>Price</th><th>Quantity</th><th></th></tr>
               {products && products?.map((data) => {
@@ -129,7 +142,7 @@ function handleUpdate(e){
               
               </div> 
                 return (
-                  <> {updateState === data.id ? <Edit data={data}  products={products} setProducts={setProducts}/> :  <tr>
+                <>  <tr>
                     <td>
                       <h5>{data.id}</h5>
                     </td>
@@ -156,9 +169,9 @@ function handleUpdate(e){
                     </td>
                     <td className= "formAction">
                       <button className="btn btn-primary" onClick={() => { deleteProduct(data.id) }} >Delete</button>
-                      <button className="btn btn-primary" onClick={() => handleEdit(data.id)} >Edit</button>
+                      <Link className="btn btn-primary"  to={`/update/${data.id}`} >Edit</Link>
                     </td>
-                  </tr>}
+                  </tr>
                   </>
                 );
               })}
@@ -170,25 +183,5 @@ function handleUpdate(e){
   </>
   );
 }
-function Edit({data,products,setProducts}){
-  function handleInput(e){
-    const newProduct =products.map(a => ( a.id == data.id ? { 
-      ...a,[e.target.name] :e.target.value    
-    } :a ))
-  setProducts(newProduct);
-}
 
-  return (
-    <tr>
-      <td>{data.id}</td>
-      <td><input type="text" name="category" onChange={handleInput} value={data.category}/></td>
-      <td><input type="text" name="image" onChange={handleInput} value={data.image}/></td>
-      <td><input type="text" name="title" onChange={handleInput} value={data.title}/></td>
-      <td><input type="text" name="subtitle" onChange={handleInput} value={data.subtitle}/></td>
-      <td><input type="text" name="description" onChange={handleInput} value={data.description}/></td>
-      <td><input type="text" name="price" onChange={handleInput} value={data.price}/></td>
-      <td><input type="text" name="quantity" onChange={handleInput} value={data.quantity}/></td>
-      <td> <button  className="btn btn-primary insertProduct" type="submit">Insert</button></td></tr>
-  )
-}
 export default DataUpdate;

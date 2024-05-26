@@ -34,16 +34,13 @@ function App() {
           </nav>
         </header>
         <Navbar />
-        <Switch>
-        <Route path="/" exact>
-          <HomePage />
-        </Route>
-        <Route path="/cart" component={Cart} />
-        <Route path="/Products">
-          <ProductPage />
-        </Route>
-        <Route path="/404" component={NotFound} />
-        <Redirect to="/404"></Redirect></Switch>
+       
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/cart" component={Cart} />
+          <Route path="/Products" component={ProductPage} />
+         
       </Router>
       <Footer />
 
