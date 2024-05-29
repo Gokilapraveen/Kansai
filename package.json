@@ -1,15 +1,19 @@
 {
-  "dependencies": {
-    "json-server": "^1.0.0-alpha.23"
-  },
-  "name": "jsonserver",
+  "name": "Kansai",
   "version": "1.0.0",
   "main": "index.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
   "scripts": {
-    "server" :" json-server --watch db.json --port 3003"
+
+    "test": "echo \"ERROR\" && exit1",
+    "server" :" npm run server watch --prefix jsonserver",
+    "client" :" npm start watch --prefix frontend",
+    "start": "set PORT=9000  &&  concurrently \"cd frontend && npm start\" \"cd jsonserver && npm run server\""
   },
   "author": "Gokilavani",
   "license": "ISC",
   "description": ""
-}
+} 
+

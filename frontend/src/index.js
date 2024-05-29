@@ -7,6 +7,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import productsReducer, { productsFetch } from './Commons/Features/ProductSlice'
 import cartReducer, { getTotals } from "./Commons/Features/cartSlice";
 import { productsApi } from "./Commons/Features/productsApi";
+import LoginConsole from './Component/admin-console/LoginPageAdmin'
 //import reportWebVitals from './reportWebVitals';
 const store = configureStore({
   reducer: {
@@ -23,7 +24,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App /></Provider>
+      <App />
+   
+      </Provider>
   </React.StrictMode>
 );
 

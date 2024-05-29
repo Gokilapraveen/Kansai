@@ -27,6 +27,7 @@
 
 .nav-bar a {
   text-decoration: none;
+  color : #7e7bb9
 }
 
 .nav-bag {
@@ -79,4 +80,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+@media (max-width : 767px) {
+
 }

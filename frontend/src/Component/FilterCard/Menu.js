@@ -1,28 +1,37 @@
-import React from 'react'
 
-function Menu({menuItem}) {
-    return (         <>
-        {menuItem !== undefined ? (
-            <>
-        <div className="item">
-            { 
-                menuItem.map((item) =>{
-                    return <div className="item-con" key={item.id}>
-                        <div className="item-container">
-                            <img src={item.image} alt={item.subtitle} width="300" height="300"/>
-                           <div class="itemContent"> <h5>{item.title}</h5>
-                            <h2>{item.subtitle}</h2> </div>
-                        </div>
-                    </div>
-                })
-            }
-        </div> </>
-    ) : menuItem === "undefined" ? (
-      <p>Loading...</p>
-    ) : (
-      <p class="error">Unexpected error occured while listing menu items...</p>
-    )}</>
-    )
+import React from "react";
+
+function Menu({ menuItem, loading }) {
+  if (loading) return <>Loading</>; // use your loading state or component
+
+  return (
+    <div className="item">
+      {menuItem.map((item) => {
+        return (
+          <div className="item-con" key={item.id}>
+            <div className="item-container" >
+              <img
+                src={item.image}
+                alt={item.subtitle}
+                width="300"
+                height="300"
+                onClick={(e) => myFunction()}
+              />
+              <div className="itemContent">
+                <h2>{item.subtitle}</h2>
+                <span>{item.title}</span>
+                <h6> Quantity - {item.quantity}</h6>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+function myFunction(e){
+console.log(e)
+
 }
 
 export default Menu;

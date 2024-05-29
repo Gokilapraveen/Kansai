@@ -99,3 +99,46 @@ button.btn {
   padding-top: 15px;
   text-align: center;
 }
+.catagorybutton.container{
+  padding-left: 2rem;
+  display: flex;
+}
+
+.productList{
+  display: flex;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-content: flex-end
+}
+.catagoryProduct{
+  color: #037FFF;
+  text-align: center;
+  padding: 10px;
+}
+.productCatagoryDesktop{
+  display: block;
+}
+/* .productCatagoryMobile{
+  display: none;
+
+}
+
+*/
+@media (max-width : 767px) {
+  .item {
+    display: inline-grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 3rem;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .productCatagoryDesktop{
+    display: none;
+  }
+  /* .productCatagoryMobile{
+    display: block;
+    text-align: center;
+  }*/
+} 

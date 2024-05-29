@@ -1,15 +1,25 @@
-import BannerComponent from "./Banner/Banner";
 
+import  Carousel  from './Carousel/Carousel';
 import FilterDataCardComponent from "./FilterCard/FilterDataCard";
+import { useEffect, useState } from "react";
+import Axios from "axios";  
+function Home(){
+const [listData ,setListData]= useState([]);
+useEffect(() => {
+  saveData();
+});
 
-const Home = () => {
-  return (
-    <>
-      <BannerComponent />
+const saveData = async () => {
+  const response = await Axios.get("http://localhost:3003/products");
+  setListData(response.data);
+};
 
+
+  return (  <>  
+     <Carousel images={listData} />
       <FilterDataCardComponent />
     </>
   );
-};
+}
 
 export default Home;

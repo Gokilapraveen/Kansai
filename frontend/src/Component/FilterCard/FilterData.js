@@ -14,7 +14,7 @@ function FilteredData (){
 const [cat, setCat] =useState([]);
 console.log("Cat",cat);
 useEffect(() => {
-   fetch("http://localhost:4500/products")
+   fetch("http://localhost:3003/products")
     .then((response)=> response.json)
     .then((data) => setCat(data))
 },[])
