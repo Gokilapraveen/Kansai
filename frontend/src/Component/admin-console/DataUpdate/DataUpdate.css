@@ -12,8 +12,8 @@
 
 .StockUpdate {
     padding-top: 20px;
+    padding-bottom: 50px;
 }
-
 .stockTable td,
 .stockTable th {
     border: 0px solid #ddd;
@@ -38,4 +38,9 @@
 .formAction{
     display: flex;
     padding-top: 100px ! important;
+}
+.updateForm{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display:none;
 }

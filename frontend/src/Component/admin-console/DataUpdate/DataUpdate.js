@@ -76,10 +76,14 @@ function DataUpdate() {
   //   e.preventDefault();
   //   setUpdateState(-1)
   // }
+  const addRecord = () => {
+    document.getElementById("addRecord").style="display:block";
+  };
 
   return (
     <>
-      <div className="updateForm container">
+      <button className="add btn btn-primary"  onClick={() => addRecord()}>Add Record</button>
+      <div className="updateForm container" id="addRecord">
         <h2>New Record</h2>
         <div className="rows">
           <input
@@ -88,23 +92,23 @@ function DataUpdate() {
             value={id}
             onChange={(e) => setId(e.target.value)}
           />
-        </div>{" "}
+        </div>
         <div className="rows">
           <input
             type="text"
             placeholder="Insert category"
             value={category}
             onChange={(e) => setCatagory(e.target.value)}
-          />{" "}
-        </div>{" "}
+          />
+        </div>
         <div className="rows">
           <input
             type="text"
             placeholder="Insert image"
             value={image}
             onChange={(e) => setImage(e.target.value)}
-          />{" "}
-        </div>{" "}
+          />
+        </div>
         <div className="rows">
           <input
             type="text"
@@ -112,7 +116,7 @@ function DataUpdate() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-        </div>{" "}
+        </div>
         <div className="rows">
           <input
             type="text"
@@ -120,7 +124,7 @@ function DataUpdate() {
             value={subtitle}
             onChange={(e) => setSubtitle(e.target.value)}
           />
-        </div>{" "}
+        </div>
         <div className="rows">
           <input
             type="text"
@@ -148,7 +152,7 @@ function DataUpdate() {
       {loading ? (
         " Loading............"
       ) : (
-        <div className="StockUpdate container">
+        <div className="StockUpdate">
           <header className="header">
             <h2>Your Stock Tracker</h2>
           </header>
@@ -157,15 +161,14 @@ function DataUpdate() {
               <form>
                 <table className="stockTable" id="FormData">
                   <tr>
-                    <th>ID</th> <th>catagory</th> <th>Image</th> <th>Title</th>{" "}
-                    <th> Subtitle </th> <th>DESC</th>
+                    <th>ID</th> <th>Catagory</th> <th>Image</th> <th>Title</th>
+                    <th> Subtitle </th> <th>Description</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th></th>
                   </tr>
                   <tbody>
-                    {products &&
-                      products?.map((data, key) => {
+                    {products && products?.map((data, key) => {
                         return (
                           <>
                             <tr key={key}>

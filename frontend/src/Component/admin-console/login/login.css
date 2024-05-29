@@ -138,3 +138,14 @@ text-align: center;
 	margin-left: auto;
 	color: #7875B5;
 }
+.login-form{
+	padding-top: 50px;
+}
+.login-form .welcomemsg button{
+float: inline-end;
+}
+
+.welcomemsg h5{
+    text-align: end;
+    padding-right: 25px;
+}

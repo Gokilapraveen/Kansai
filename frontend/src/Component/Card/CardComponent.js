@@ -45,7 +45,7 @@ const Card = () => {
                                         />
                                         {isOpen1 && <Popup
                                             content={<div className='container popupContent'>
-                                                <img src={currentproduct.image} />
+                                                <img src={currentproduct.image} alt="popupContent"/>
                                                 <div className='currentproduct'>  <h2>{currentproduct.subtitle}</h2>
                                                 <p>{currentproduct.description}</p>
                                                 <p>Dilution / {currentproduct.quantity} - {currentproduct.dilution}</p>

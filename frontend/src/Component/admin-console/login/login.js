@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import DataUpdate from "../DataUpdate/DataUpdate";
 import "./login.css";
+
 function Login() {
   const database = [
     {
@@ -99,8 +100,8 @@ function Login() {
           <h2>Admin Login</h2>
         </div>
       ) : (
-        <div>
-          Welcome
+        <div className="welcomemsg">
+          <h5>Welcome Admin</h5>   
           <button className="btn btn-primary" onClick={() => logoutSession()}>
             Logout
           </button>
