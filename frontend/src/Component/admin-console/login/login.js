@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import DataUpdate from "../DataUpdate/DataUpdate";
-
-
+import "./login.css";
 function Login() {
   const database = [
     {
@@ -13,7 +12,6 @@ function Login() {
       password: "pass2",
     },
   ];
-
   const errors = {
     uname: "invalid username",
     pass: "invalid password",
@@ -25,65 +23,97 @@ function Login() {
     event.preventDefault();
     var { uname, pass } = document.forms[0];
     const userData = database.find((user) => user.username === uname.value);
+
     if (userData) {
       if (userData.password !== pass.value) {
         setErrorMessages({ name: "pass", message: errors.pass });
       } else {
-        sessionStorage.setItem("User", userData.username)
+        sessionStorage.setItem("User", userData.username);
         sessionStorage.setItem("Loggedin", "true");
       }
     } else {
       setErrorMessages({ name: "uname", message: errors.uname });
     }
     window.location.reload();
-  }
+  };
 
   const renderErrorMessage = (name) =>
     name === errorMessages.name && (
       <div className="error">{errorMessages.message}</div>
     );
 
-
-
   const renderForm = (
     <div className="form">
-      {
-        sessionStorage.getItem("Loggedin") ? "" :
-          <form onSubmit={handleSubmit}>
-            <div className="input-container">
-              <label>Username </label>
-              <input type="text" name="uname" required />
-              {renderErrorMessage("uname")}
-            </div>
-            <div className="input-container">
-              <label>Password </label>
-              <input type="password" name="pass" required />
-              {renderErrorMessage("pass")}
-            </div>
-            <div className="button-container">
-              <input type="submit" />
-            </div>
-          </form>
-      }
+      {sessionStorage.getItem("Loggedin") ? (
+        ""
+      ) : (
+        <div className="logincontainer">
+          <div className="screen">
+            <div className="screen__content">
+              <form className="login" onSubmit={handleSubmit} method="post">
+                <div className="login__field">
+                  <i className="login__icon fas fa-user"></i>
+                  <input
+                    type="text"
+                    className="login__input"
+                    name="uname"
+                    required
+                    placeholder="User name"
+                  />
+                  {renderErrorMessage("uname")}
+                </div>
 
+                <div className="login__field">
+                  <i className="login__icon fas fa-lock"></i>
+                  <input
+                    type="password"
+                    className="login__input"
+                    name="pass"
+                    required
+                    placeholder="Password"
+                  />
+                  {renderErrorMessage("pass")}
+                </div>
+
+                <button className="button login__submit">
+                  <span className="button__text">Log In</span>
+                  <i className="button__icon fas fa-chevron-right"></i>
+                </button>
+              </form>
+            </div>
+            <div className="screen__background">
+              <span className="screen__background__shape screen__background__shape4"></span>
+              <span className="screen__background__shape screen__background__shape3"></span>
+              <span className="screen__background__shape screen__background__shape2"></span>
+              <span className="screen__background__shape screen__background__shape1"></span>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
-
   );
   const renderContent = (
-    <> {
-      !sessionStorage.getItem("Loggedin") ? "Sign in PLease " :
-        <div> Welcome
-          <button className="btn btn-primary" onClick={() => logoutSession()} >Logout</button>
-          <DataUpdate /> </div>
-    }
+    <>
+      {!sessionStorage.getItem("Loggedin") ? (
+        <div className="container loginAdmin">
+          <h2>Admin Login</h2>
+        </div>
+      ) : (
+        <div>
+          Welcome
+          <button className="btn btn-primary" onClick={() => logoutSession()}>
+            Logout
+          </button>
+          <DataUpdate />
+        </div>
+      )}
     </>
-
-  )
+  );
 
   return (
     <div className="app">
       <div className="login-form">
-        {renderForm} {renderContent}
+        {renderContent} {renderForm}
       </div>
     </div>
   );
