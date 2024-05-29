@@ -8,7 +8,7 @@ import ProductPage from './Component/ProductPage'
 import Cart from './Component/Cart/Cart';
 import Navbar from './Component/Navbar/Navbar';
 import NotFound from './Component/404Page/Notfound';
-
+import LoginConsole from './Component/admin-console/LoginPageAdmin'
 function App() {
   const { cartTotalQuantity } = useSelector((state) => state.cart);
 
@@ -40,7 +40,7 @@ function App() {
           </Route>
           <Route path="/cart" component={Cart} />
           <Route path="/Products" component={ProductPage} />
-         
+          <LoginConsole/>
       </Router>
       <Footer />
 

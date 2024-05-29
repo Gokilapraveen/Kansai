@@ -25,7 +25,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <App />
-      <LoginConsole/>
+   
       </Provider>
   </React.StrictMode>
 );
