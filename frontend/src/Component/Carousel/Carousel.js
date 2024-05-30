@@ -23,7 +23,8 @@ function Carousel({ images }) {
     setCurrent(current === 0 ? images.length - 1 : current - 1);
   };
   return (
-    <div id="carousel"
+    <div
+      id="carousel"
       className="carousel"
       onMouseEnter={() => {
         setAutoPlay(false);

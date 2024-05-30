@@ -6,58 +6,66 @@ import {
   decreaseCart,
   getTotals,
   removeFromCart,
-} from '../../Commons/Features/cartSlice';
-import './Cart.css'
+} from "../../Commons/Features/cartSlice";
+import "./Cart.css";
 import { Link } from "react-router-dom";
-import BannerComponent from '../Banner/Banner';
+import BannerComponent from "../Banner/Banner";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const finalCart = useSelector((state) => state.cart.cartItems);
-  //.map((cartItem) => (cartItem.cartQuantity +"-"+ cartItem.subtitle  +"-"+  cartItem.quantity))); 
+  //.map((cartItem) => (cartItem.cartQuantity +"-"+ cartItem.subtitle  +"-"+  cartItem.quantity)));
 
   const onSubmit = (e) => {
-
     const jsonData = JSON.stringify(finalCart);
-    console.log(jsonData)
-
-    console.log(finalCart.map((a) => a.quantity));
+    //console.log(jsonData)
+    //console.log(finalCart.map((a) => a.quantity));
 
     const headers = Object.keys(finalCart[0]);
-    const rows = finalCart.map(item => Object.values(item));
-    console.log("rows and header", headers)
-    { TableComponent(finalCart) }
+    const rows = finalCart.map((item) => Object.values(item));
+    //console.log("rows and header", headers);
+    {
+      TableComponent(finalCart);
+    }
     //window.open("https://wa.me/918220328391?text=Hello Sir willing to place the order" +finalCart )
     //  <TableComponent data={finalCart} />
 
-
-
     //       window.open("https://wa.me/918220328391?text=Hello Sir willing to place the order" +finalCart );
-  }
-  //"Product count - "+ cartItem.cartQuantity +" ,Name - "+ cartItem.subtitle +" ,Quantity - "+ cartItem.quantity  
+  };
+  //"Product count - "+ cartItem.cartQuantity +" ,Name - "+ cartItem.subtitle +" ,Quantity - "+ cartItem.quantity
 
   const TableComponent = (data) => {
-    console.log("data", data)
+    //console.log("data", data);
     const headers = Object.keys(data[0]);
-    const rows = data.map(item => Object.values(item));
-    console.log("rows and header", rows + headers)
-    const table = <>
-      <table>
-        <thead>
-          <tr>
-            {headers.map(header => <th key={header}>{header}</th>)}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={index}>
-              {row.map((cell, index) => <td key={index}>{cell}</td>)}
+    const rows = data.map((item) => Object.values(item));
+    //console.log("rows and header", rows + headers);
+    const table = (
+      <>
+        <table>
+          <thead>
+            <tr>
+              {headers.map((header) => (
+                <th key={header}>{header}</th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </table></>
+          </thead>
+          <tbody>
+            {rows.map((row, index) => (
+              <tr key={index}>
+                {row.map((cell, index) => (
+                  <td key={index}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </>
+    );
 
-    window.open("https://wa.me/918220328391?text=Hello Sir willing to place the order" + table);
+    window.open(
+      "https://wa.me/918220328391?text=Hello Sir willing to place the order" +
+        table
+    );
   };
 
   const dispatch = useDispatch();
@@ -116,7 +124,11 @@ const Cart = () => {
             <div className="cart-items">
               {cart.cartItems &&
                 cart.cartItems.map((cartItem) => (
-                  <div className="cart-item" data-field={cartItem.id} key={cartItem.id}>
+                  <div
+                    className="cart-item"
+                    data-field={cartItem.id}
+                    key={cartItem.id}
+                  >
                     <div className="cart-product">
                       <img src={cartItem.image} alt={cartItem.title} />
                       <div>
@@ -134,7 +146,9 @@ const Cart = () => {
                         -
                       </button>
                       <div className="count">{cartItem.cartQuantity}</div>
-                      <button onClick={() => handleAddToCart(cartItem)}>+</button>
+                      <button onClick={() => handleAddToCart(cartItem)}>
+                        +
+                      </button>
                     </div>
                     <div className="cart-product-total-price">
                       {cartItem.price * cartItem.cartQuantity}
@@ -175,7 +189,8 @@ const Cart = () => {
             </div>
           </div>
         )}
-      </div></>
+      </div>
+    </>
   );
 };
 

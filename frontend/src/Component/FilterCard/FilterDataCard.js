@@ -15,7 +15,7 @@ function FilterDataCard() {
   };
   const removeCategory = (category) => {
     if (selectedCategories.includes(category)) {
-      console.log(selectedCategories);
+      //console.log(selectedCategories);
       const removedList = selectedCategories.filter(
         (item) => item !== category
       );

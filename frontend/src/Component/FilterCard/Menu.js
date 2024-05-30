@@ -1,4 +1,3 @@
-
 import React from "react";
 
 function Menu({ menuItem, loading }) {
@@ -9,13 +8,12 @@ function Menu({ menuItem, loading }) {
       {menuItem.map((item) => {
         return (
           <div className="item-con" key={item.id}>
-            <div className="item-container" >
+            <div className="item-container">
               <img
                 src={item.image}
                 alt={item.subtitle}
                 width="300"
                 height="300"
-                onClick={(e) => myFunction()}
               />
               <div className="itemContent">
                 <h2>{item.subtitle}</h2>
@@ -29,9 +27,4 @@ function Menu({ menuItem, loading }) {
     </div>
   );
 }
-function myFunction(e){
-console.log(e)
-
-}
-
 export default Menu;
