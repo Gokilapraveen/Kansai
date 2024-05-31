@@ -378,6 +378,8 @@
   /* NavBar */
   .nav-bar {
     padding: 0 1rem;
+    display: inline-block;
+    text-align: center;
   }
   .nav-bar h2 {
     font-size: 30px;

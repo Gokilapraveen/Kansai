@@ -12,7 +12,7 @@ function Carousel({ images }) {
       autoPlay &&
       setTimeout(() => {
         slideRight();
-      }, 1000);
+      }, 2000);
   });
 
   const slideRight = () => {

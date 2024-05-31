@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import "./DataUpdate.css";
+import { useHistory } from "react-router-dom";
 
 function DataUpdate() {
   const [products, setProducts] = useState([]);
@@ -77,12 +78,14 @@ function DataUpdate() {
   //   setUpdateState(-1)
   // }
   const addRecord = () => {
-    document.getElementById("addRecord").style="display:block";
+    document.getElementById("addRecord").style = "display:block";
   };
 
   return (
     <>
-      <button className="add btn btn-primary"  onClick={() => addRecord()}>Add Record</button>
+      <button className="add btn btn-primary" onClick={() => addRecord()}>
+        Add Record
+      </button>
       <div className="updateForm container" id="addRecord">
         <h2>New Record</h2>
         <div className="rows">
@@ -168,7 +171,8 @@ function DataUpdate() {
                     <th></th>
                   </tr>
                   <tbody>
-                    {products && products?.map((data, key) => {
+                    {products &&
+                      products?.map((data, key) => {
                         return (
                           <>
                             <tr key={key}>
@@ -207,7 +211,10 @@ function DataUpdate() {
                                 </button>
                                 <Link
                                   className="btn btn-primary"
-                                  to={`/update/${data.id}`}
+                                  to={{
+                                    pathname: `/update/${data.id}`,
+                                    state: { data },
+                                  }}
                                 >
                                   Edit
                                 </Link>
